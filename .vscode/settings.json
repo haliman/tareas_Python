@@ -1,0 +1,6 @@
+{
+    "python.analysis.extraPaths": [
+        "./Conceptos básicos y sintaxis de Python/vehiculo/class",
+        "./Conceptos básicos y sintaxis de Python/vehiculo"
+    ]
+}
