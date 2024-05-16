@@ -1,6 +1,8 @@
+from colorama import Fore, Style
+
 from models.tarea import Tarea
 
-class GestorTareas:
+class TareasController:
     def __init__(self):
         self.tareas = []
     
@@ -15,10 +17,10 @@ class GestorTareas:
         try:
             del self.tareas[posicion]
         except IndexError:
-            print('La posición no existe.')
+            print(Fore.RED+'La posición no existe.'+Style.RESET_ALL)
     
     def completarTarea(self, posicion):
         try:
             self.tareas[posicion].tareaCompletada()
         except IndexError:
-            print('La posición no existe.')
+           print(Fore.RED+'La posición no existe.'+Style.RESET_ALL)
