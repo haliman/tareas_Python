@@ -4,10 +4,13 @@ from colorama import Fore, Style
 from controllers.tareasController import TareasController
 
 class Menu:
+    #Clase Menu donde vamos a realizar todas la tareas.
     
+    #Limpia la pantalla de la consola
     def limpiarPantalla(self):
         os.system('cls' if os.name == 'nt' else 'clear')
         
+    #Pinta las opciones del menú en consola
     def pintarMenu(self):
         print(Fore.GREEN+"****************************")
         print("***** Gestor de tareas *****")
@@ -18,9 +21,13 @@ class Menu:
         print('4. Eliminar tarea.')
         print('5. Salir.\n')
         
+    #Selecciona una de las opciones del menú 
     def seleccionarOpciones(self):
+        #Inicializa la opcion a 0 y Crea una instancia de TareasController para manejar las tareas.
         opcion = '0'
         tarea = TareasController()
+        
+        #Bucle para escoger la opción deseada y en caso de querer salir presionar la opción correspondiente.
         while opcion != '5':
             self.pintarMenu()
             opcion = input('Seleccione la opción: ')
