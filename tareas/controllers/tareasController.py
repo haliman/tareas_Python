@@ -10,13 +10,18 @@ class TareasController:
             tareas(list): Lista de tareas donde se almacena las tareas.
     '''
     def __init__(self):
-        #Inicializamos las tareas con una lista vacía.
+        #Inicializa las tareas con una lista vacía.
         self.tareas = []
         
-    #Mostramos todas las tareas que hay en la lista.
+    #Muestra todas las tareas que hay en la lista en caso de que este vacía muestra un mensaje.
     def mostarTareas(self):
-        for i, tarea in enumerate(self.tareas):
-            print(str(i+1)+'.',tarea)
+        if  len(self.tareas) == 0:
+            print(Fore.LIGHTRED_EX+'No hay tareas en la lista')
+        else:
+            print(Fore.YELLOW)
+            for i, tarea in enumerate(self.tareas):
+                print(str(i+1)+'.',tarea)
+        print(Style.RESET_ALL)
             
     '''
         Agregamos una nueva tarea
@@ -26,7 +31,7 @@ class TareasController:
     '''
     def agregarTarea(self, descripcion):
         self.tareas.append(Tarea(descripcion))
-        print('Se ha creado la tarea con exito!!')
+        print(Fore.LIGHTGREEN_EX+'Se ha creado la tarea con exito!!'+Style.RESET_ALL)
     
     '''
         Eliminar una tarea
@@ -38,7 +43,7 @@ class TareasController:
         #Excepción en el caso de que el valor introducido no sea correcto nos de un mensaje de error.
         try:
             del self.tareas[posicion-1]
-            print(Fore.RED+'Se ha eliminado la tarea con exito!!'+Style.RESET_ALL)
+            print(Fore.LIGHTBLUE_EX+'Se ha eliminado la tarea con exito!!'+Style.RESET_ALL)
         except IndexError:
             print(Fore.RED+'La posición no existe.'+Style.RESET_ALL)
     
@@ -52,9 +57,9 @@ class TareasController:
         #Excepción en el caso de que el valor introducido no sea correcto nos de un mensaje de error.
         try:
             if self.tareas[posicion-1].completada:
-                print('La tarea que intentas completar ya fue completada anteriormente.')
+                print(Fore.LIGHTRED_EX+'La tarea que intentas completar ya fue completada anteriormente.'+Style.RESET_ALL)
             else:
                 self.tareas[posicion-1].tareaCompletada()
-                print('Tarea completada con exito!!')
+                print(Fore.LIGHTBLUE_EX+'Tarea completada con exito!!'+Style.RESET_ALL)
         except IndexError:
-           print(Fore.RED+'La posición no existe.'+Style.RESET_ALL)
+           print(Fore.LIGHTRED_EX+'La posición no existe.'+Style.RESET_ALL)

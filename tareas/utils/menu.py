@@ -39,14 +39,14 @@ class Menu:
             elif opcion == '3':
                 #Excepción en el caso de que el valor introducido no sea correcto nos de un mensaje de error.
                 try:
-                    posicion = int(input(Fore.BLUE+'Introduzca el número de la tarea que quiere completar: '+Style.RESET_ALL))
+                    posicion = int(input(Fore.LIGHTGREEN_EX+'Introduzca el número de la tarea que quiere completar: '+Style.RESET_ALL))
                     tarea.completarTarea(posicion)
                 except ValueError:
                     print(Fore.RED+'La posición no existe.'+Style.RESET_ALL)
             elif opcion == '4':
                 #Excepción en el caso de que el valor introducido no sea correcto nos de un mensaje de error.
                 try:
-                    posicion = int(input(Fore.BLUE+'Introduzca el número de la tarea que quiere eliminar: '+Style.RESET_ALL))
+                    posicion = int(input(Fore.LIGHTGREEN_EX+'Introduzca el número de la tarea que quiere eliminar: '+Style.RESET_ALL))
                     tarea.eliminarTarea(posicion)
                 except ValueError:
                     print(Fore.RED+'La posición no existe.'+Style.RESET_ALL)
